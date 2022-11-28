@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
+import unidecode
 
 
 def remove_duplicados(lista):
@@ -13,6 +14,7 @@ def remove_duplicados(lista):
 def calcular_frequencia_letras(texto):
     lista_letras = []
     for caracter in texto:
+        caracter = unidecode.unidecode(caracter)
         if caracter.isalpha():
             lista_letras.append(caracter)
     return lista_letras
@@ -41,7 +43,7 @@ def mostra_grafico(frequencia_letras, linguas):
     barras["fr"] = ax.bar(x + largura, valores_fr, largura, label="Francês")
 
     ax.set_ylabel("Frequência das letras")
-    ax.set_title("Letras mais frequêntes em Gene Egoísta")
+    ax.set_title("Letras mais frequentes em Gene Egoísta")
     ax.set_xticks(x, rotulos)
     ax.legend()
 
